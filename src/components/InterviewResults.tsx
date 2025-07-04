@@ -8,6 +8,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import { InterviewSession } from '../types/interview';
+import { Footer } from './Footer';
 
 interface InterviewResultsProps {
   session: InterviewSession;
@@ -90,7 +91,7 @@ export const InterviewResults: React.FC<InterviewResultsProps> = ({
       : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-8">
+    <><div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
           onClick={onBack}
@@ -176,13 +177,11 @@ export const InterviewResults: React.FC<InterviewResultsProps> = ({
                               Q{index + 1}
                             </span>
                             <span
-                              className={`w-2 h-2 rounded-full mr-2 ${
-                                question?.difficulty === 'easy'
+                              className={`w-2 h-2 rounded-full mr-2 ${question?.difficulty === 'easy'
                                   ? 'bg-success-500'
                                   : question?.difficulty === 'medium'
-                                  ? 'bg-warning-500'
-                                  : 'bg-error-500'
-                              }`}
+                                    ? 'bg-warning-500'
+                                    : 'bg-error-500'}`}
                               aria-label={`Difficulty: ${question?.difficulty}`}
                               role="img"
                             ></span>
@@ -250,6 +249,6 @@ export const InterviewResults: React.FC<InterviewResultsProps> = ({
           </nav>
         </div>
       </div>
-    </div>
+    </div><Footer /></>
   );
 };

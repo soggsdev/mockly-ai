@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Footer } from "./Footer";
 
 interface Question {
   id: number;
@@ -169,14 +170,12 @@ export const InterviewSession: React.FC<InterviewSessionProps> = ({ config, onCo
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 flex flex-col items-center justify-center p-6">
+    <><div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 flex flex-col items-center justify-center p-6">
       <div className="max-w-3xl w-full bg-gray-800 rounded-3xl shadow-xl p-8 space-y-6">
         <header className="flex justify-between items-center">
           <h2 className="text-2xl font-semibold text-indigo-200">Mock Interview Session</h2>
           <div
-            className={`font-mono text-lg ${
-              secondsLeft <= 30 ? "text-red-600 font-bold animate-pulse" : "text-gray-700"
-            }`}
+            className={`font-mono text-lg ${secondsLeft <= 30 ? "text-red-600 font-bold animate-pulse" : "text-gray-700"}`}
             aria-live="polite"
             aria-label="Time remaining"
           >
@@ -207,17 +206,14 @@ export const InterviewSession: React.FC<InterviewSessionProps> = ({ config, onCo
               onChange={(e) => setCurrentAnswer(e.target.value)}
               className="w-full border bg-gray-600 text-indigo-200 border-gray-300 rounded-xl p-4 resize-none focus:outline-none focus:ring-2 focus:ring-primary-500"
               disabled={isGeneratingFeedback}
-              aria-label="Your answer"
-            />
+              aria-label="Your answer" />
 
             <button
               onClick={handleSubmitAnswer}
               disabled={isGeneratingFeedback || !currentAnswer.trim()}
-              className={`w-full py-3 rounded-xl font-semibold text-white transition ${
-                isGeneratingFeedback || !currentAnswer.trim()
+              className={`w-full py-3 rounded-xl font-semibold text-white transition ${isGeneratingFeedback || !currentAnswer.trim()
                   ? "bg-indigo-200 cursor-not-allowed"
-                  : "bg-indigo-300 hover:bg-indigo-400"
-              }`}
+                  : "bg-indigo-300 hover:bg-indigo-400"}`}
             >
               {isGeneratingFeedback ? "Generating feedback..." : "Submit Answer"}
             </button>
@@ -234,6 +230,6 @@ export const InterviewSession: React.FC<InterviewSessionProps> = ({ config, onCo
           </>
         )}
       </div>
-    </div>
+    </div><Footer /></>
   );
 };
